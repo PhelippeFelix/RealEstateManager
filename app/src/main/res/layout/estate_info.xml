@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/add_activity_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:padding="@dimen/padding_to_parent"
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/title_estate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/activity_add_title_estate"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/colorGreyTitle"
+        android:textSize="@dimen/size_text_big"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <View
+        android:id="@+id/divider_estate"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorGrey"
+        app:layout_constraintTop_toBottomOf="@id/title_estate"
+        />
+
+    <CheckBox
+        android:id="@+id/add_activity_check_sold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/activity_add_estate_sold_checkbox"
+        android:textSize="@dimen/size_text_big"
+        android:layout_marginTop="@dimen/space_between_elements"
+        app:layout_constraintTop_toBottomOf="@id/divider_estate"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/add_activity_date_sold_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/activity_add_estate_sold_date"
+        app:layout_constraintTop_toBottomOf="@id/add_activity_check_sold"
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingBottom="@dimen/space_between_elements"
+        android:visibility="gone"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/add_activity_date_sold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            android:clickable="true"
+            android:focusable="false"
+            android:drawableEnd="@drawable/baseline_arrow_drop_down_black_24"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/add_activity_spinner_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/activity_add_estate_type_hint"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_activity_date_sold_layout"
+        android:layout_marginTop="@dimen/space_between_elements"
+        android:paddingBottom="@dimen/space_between_elements"
+        app:layout_constraintWidth_percent=".49"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/add_activity_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="false"
+            android:inputType="text"
+            android:drawableEnd="@drawable/baseline_arrow_drop_down_black_24"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/add_activity_price_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/activity_add_estate_price_hint"
+        app:layout_constraintTop_toBottomOf="@+id/add_activity_date_sold_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent=".49"
+        android:layout_marginTop="@dimen/space_between_elements"
+        android:paddingBottom="@dimen/space_between_elements"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/add_activity_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/add_activity_surface_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_percent=".49"
+        android:layout_height="wrap_content"
+        android:hint="@string/activity_add_estate_surface_hint"
+        android:paddingBottom="@dimen/space_between_elements"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/add_activity_price_layout"
+
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/add_activity_surface"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/add_activity_room_number_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_percent=".49"
+        android:layout_height="wrap_content"
+        android:hint="@string/activity_add_estate_room_number_hint"
+        android:paddingBottom="@dimen/space_between_elements"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/add_activity_price_layout"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/add_activity_room_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/add_activity_bathroom_number_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_percent=".49"
+        android:layout_height="wrap_content"
+        android:hint="@string/activity_add_estate_bathroom_number_hint"
+        android:paddingBottom="@dimen/space_between_elements"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/add_activity_surface_layout"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/add_activity_bathroom_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/add_activity_bedroom_number_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_percent=".49"
+        android:layout_height="wrap_content"
+        android:hint="@string/activity_add_estate_bedroom_number_hint"
+        android:paddingBottom="@dimen/space_between_elements"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/add_activity_room_number_layout"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/add_activity_bedroom_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/add_activity_desc_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/activity_add_estate_desc_hint"
+        app:layout_constraintTop_toBottomOf="@id/add_activity_bedroom_number_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingBottom="@dimen/space_between_elements"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/add_activity_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/title_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/activity_add_title_address"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/colorGreyTitle"
+        android:textSize="@dimen/size_text_big"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/add_activity_desc_layout"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorGrey"
+        app:layout_constraintTop_toBottomOf="@id/title_address"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/add_activity_address_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/activity_add_estate_address_hint"
+        app:layout_constraintTop_toBottomOf="@id/title_address"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/space_between_elements"
+        android:paddingBottom="@dimen/space_between_elements"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/add_activity_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/add_activity_add_address_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/activity_add_estate_add_address_hint"
+        app:layout_constraintTop_toBottomOf="@id/add_activity_address_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingBottom="@dimen/space_between_elements"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/add_activity_add_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/add_activity_sector_address_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/activity_add_estate_sector_address_hint"
+        app:layout_constraintTop_toBottomOf="@id/add_activity_add_address_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingBottom="@dimen/space_between_elements"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/add_activity_sector_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- ADDRESS CITY / ZIP / STATE -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/address_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/add_activity_sector_address_layout"
+        >
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/add_activity_city_address_layout"
+            android:layout_width="0dp"
+            app:layout_constraintWidth_percent=".32"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/activity_add_estate_city_address_hint"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:paddingBottom="@dimen/space_between_elements"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/add_activity_city_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/add_activity_zip_address_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/activity_add_estate_zip_address_hint"
+            android:paddingBottom="@dimen/space_between_elements"
+            app:layout_constraintEnd_toStartOf="@id/add_activity_country_address_layout"
+            app:layout_constraintStart_toEndOf="@id/add_activity_city_address_layout"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintWidth_percent=".32">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/add_activity_zip_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/add_activity_country_address_layout"
+            android:layout_width="0dp"
+            app:layout_constraintWidth_percent=".32"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/activity_add_estate_country_address_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:paddingBottom="@dimen/space_between_elements"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/add_activity_country_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/title_nearby"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/activity_add_title_nearby"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/colorGreyTitle"
+        android:textSize="@dimen/size_text_big"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/address_line"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorGrey"
+        app:layout_constraintTop_toBottomOf="@id/title_nearby"
+        />
+
+    <CheckBox
+        android:id="@+id/nearby_parks"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_percent=".49"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/size_text_big"
+        android:text="@string/activity_add_estate_parks"
+        android:layout_marginTop="@dimen/space_between_elements"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_nearby"
+        />
+
+    <CheckBox
+        android:id="@+id/nearby_shops"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_percent=".49"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/size_text_big"
+        android:text="@string/activity_add_estate_shops"
+        android:layout_marginTop="@dimen/space_between_elements"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_nearby"
+        />
+
+    <CheckBox
+        android:id="@+id/nearby_schools"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_percent=".49"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/size_text_big"
+        android:text="@string/activity_add_estate_schools"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nearby_parks"
+        />
+
+    <CheckBox
+        android:id="@+id/nearby_highway"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_percent=".49"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/size_text_big"
+        android:text="@string/activity_add_estate_highway"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nearby_shops"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/add_activity_date_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/activity_add_estate_date_hint"
+        app:layout_constraintTop_toBottomOf="@id/nearby_highway"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/space_between_elements"
+        android:paddingBottom="@dimen/small_space_between_items"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/add_activity_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            android:clickable="true"
+            android:focusable="false"
+            android:drawableEnd="@drawable/baseline_arrow_drop_down_black_24"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/title_media"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/activity_add_title_media"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/colorGreyTitle"
+        android:textSize="@dimen/size_text_big"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/add_activity_date_layout"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorGrey"
+        app:layout_constraintTop_toBottomOf="@id/title_media"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/add_activity_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_media"
+        android:horizontalSpacing="10dp"
+        android:isScrollContainer="false"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="10dp"
+        android:paddingTop="@dimen/space_between_elements"
+        >
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <Button
+        android:id="@+id/add_activity_choose_pic"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/activity_add_estate_choose_pic"
+
+        app:layout_constraintWidth_percent=".5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/add_activity_recycler_view"
+        android:layout_marginTop="@dimen/space_between_elements"
+        />
+
+    <Button
+        android:id="@+id/add_activity_take_pic"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/activity_add_estate_take_pic"
+
+        app:layout_constraintWidth_percent=".5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/add_activity_recycler_view"
+        android:layout_marginTop="@dimen/space_between_elements"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
