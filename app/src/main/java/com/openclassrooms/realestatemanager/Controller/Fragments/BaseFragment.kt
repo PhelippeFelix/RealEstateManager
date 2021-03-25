@@ -101,12 +101,11 @@ abstract class BaseFragment : Fragment() {
 
     fun getMarkerIconFromDrawable(): BitmapDescriptor? {
         if (context != null){
-            val icon: Drawable = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                context!!.resources.getDrawable(R.drawable.baseline_location_on_black_36, context!!.applicationContext.theme)
-            }else{
-                context!!.resources.getDrawable(R.drawable.baseline_location_on_black_36)
-            }
-            val colorGreen = ContextCompat.getColor(context!!, R.color.colorAccent)
+            @Suppress("DEPRECATION")
+            // Need to be min SDK 21 to add the theme variable on the constructor to be a more actual way to do it and not deprecated
+            val icon: Drawable = requireContext().resources.getDrawable(R.drawable.baseline_location_on_black_36)
+
+            val colorGreen = ContextCompat.getColor(requireContext(), R.color.colorAccent)
             val filter = LightingColorFilter(colorGreen, colorGreen)
             icon.colorFilter = filter
 

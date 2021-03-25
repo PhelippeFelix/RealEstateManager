@@ -20,14 +20,13 @@ import com.openclassrooms.realestatemanager.R
 import com.openclassrooms.realestatemanager.utils.DividerItemDecoration
 import com.openclassrooms.realestatemanager.utils.ItemClickSupport
 import kotlinx.android.synthetic.main.fragment_list.*
-import kotlin.collections.ArrayList as ArrayList1
 
 
 const val DATABASE_ID = "DATABASE_ID"
 
 class ListFragment : Fragment() {
 
-    private lateinit var listEstate: ArrayList1<FullEstate>
+    private lateinit var listEstate: ArrayList<FullEstate>
     private lateinit var adapter:FragmentListAdapter
     private lateinit var mViewModel: EstateViewModel
 
@@ -50,8 +49,8 @@ class ListFragment : Fragment() {
 
         val bundle = arguments?.size()
         if (bundle != null) {
-            val query = arguments?.getString("QUERY")
-            val args = arguments?.getStringArrayList("ARGS") as ArrayList1<Any>
+            val query = requireArguments().getString("QUERY")
+            val args = requireArguments().getStringArrayList("ARGS") as ArrayList<Any>
             mViewModel.getEstatesBySearch(query!!,args).observe(viewLifecycleOwner, Observer { updateUI(it!!) })
         }else{
             mViewModel.getEstates().observe(viewLifecycleOwner, Observer<List<FullEstate>> { updateUI(it!!) })
@@ -65,7 +64,7 @@ class ListFragment : Fragment() {
     // CONFIGURATION
     // ---------------------
     private fun configureRecyclerView(){
-        this.listEstate = ArrayList1()
+        this.listEstate = ArrayList()
         this.adapter = FragmentListAdapter(this.listEstate)
         this.fragment_list_recycler_view.adapter = this.adapter
         this.fragment_list_recycler_view.layoutManager = LinearLayoutManager(activity)

@@ -126,6 +126,7 @@ class AddActivity : BaseActivity(), ActivityAddAdapter.Listener {
                     0)
 
             this.estateViewModel.createEstate(estate, location,applicationContext, estateViewModel.listImagesToSave.toList())
+            this.finish()
             this.clearAllFields()
         }else{
             Toast.makeText(this, resources.getString(R.string.activity_add_estate_save_error), Toast.LENGTH_LONG).show()

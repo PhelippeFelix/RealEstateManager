@@ -18,9 +18,9 @@ import java.util.Date;
 
 public class Utils extends AsyncTask<Void,Void,Boolean> {
 
-    private static int timeOutMs = 1500;
-    private static String googleDNS = "8.8.8.8";
-    private static int googleDNSPort = 53;
+    private static final int timeOutMs = 1500;
+    private static final String googleDNS = "8.8.8.8";
+    private static final int googleDNSPort = 53;
 
     private Consumer mConsumer;
     public  interface Consumer { void accept(Boolean internet); }
@@ -77,8 +77,6 @@ public class Utils extends AsyncTask<Void,Void,Boolean> {
 
     /**
      * Vérification de la géo-localisation
-     * @param context
-     * @return
      */
     public static boolean isLocationEnabled(Context context) {
         int locationMode = 0;
@@ -87,7 +85,6 @@ public class Utils extends AsyncTask<Void,Void,Boolean> {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
             try {
                 locationMode = Settings.Secure.getInt(context.getContentResolver(), Settings.Secure.LOCATION_MODE);
-
             } catch (Settings.SettingNotFoundException e) {
                 e.printStackTrace();
                 return false;

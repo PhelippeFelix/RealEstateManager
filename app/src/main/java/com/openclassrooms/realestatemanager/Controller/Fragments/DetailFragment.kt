@@ -223,37 +223,28 @@ class DetailFragment : BaseFragment(), ActivityAddAdapter.Listener, OnMapReadyCa
                     !result.location.zipCode.isNullOrEmpty() &&
                     !result.location.country.isNullOrEmpty()
 
+    // Need to be min SDK 21 to add the theme variable on the constructor to be a more actual way to do it and not deprecated
+    @Suppress("DEPRECATION")
+
     private fun setImage(context: Context, imageView: ImageView, result:Boolean){
           try {
               lateinit var icon:Drawable
               lateinit var filter:LightingColorFilter
               val colorGreen = ContextCompat.getColor(context, R.color.colorGreen)
               val colorRed = ContextCompat.getColor(context, R.color.colorRed)
-
-              if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                  if (result){
-                      icon = context.resources.getDrawable(R.drawable.baseline_check_black_18, context.applicationContext.theme)
-                      filter = LightingColorFilter(colorGreen, colorGreen)
-                  }else{
-                      icon = context.resources.getDrawable(R.drawable.baseline_clear_black_18, context.applicationContext.theme)
-                      filter = LightingColorFilter(colorRed, colorRed)
-                  }
-              } else {
-                  if (result){
+               if (result){
                       icon = context.resources.getDrawable(R.drawable.baseline_check_black_18)
                       filter = LightingColorFilter(colorGreen, colorGreen)
-                  } else{
+                  }else{
                       icon = context.resources.getDrawable(R.drawable.baseline_clear_black_18)
                       filter = LightingColorFilter(colorRed, colorRed)
                   }
-              }
+
               icon.colorFilter = filter
               imageView.setImageDrawable(icon)
           } catch (e: Exception) {
               e.printStackTrace()
           }
     }
-        // had to be override
-    override fun onClickDeleteButton(position: Int) {
-    }
+    override fun onClickDeleteButton(position: Int) {}
 }

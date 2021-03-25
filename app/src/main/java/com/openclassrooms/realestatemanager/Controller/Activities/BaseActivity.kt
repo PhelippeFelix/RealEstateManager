@@ -34,6 +34,7 @@ import java.io.IOException
 import java.time.LocalDate
 
 
+@Suppress("DEPRECATION")
 abstract class BaseActivity : AppCompatActivity() {
 
     lateinit var photoURI:Uri
@@ -198,14 +199,16 @@ abstract class BaseActivity : AppCompatActivity() {
     // ---------------------
 
     fun displayDatePicker(mView: TextInputEditText){
-        val sdf = SimpleDateFormat("dd/MM/yyyy")
+        val sdf = SimpleDateFormat("dd/MM/yyyy",Locale.ENGLISH)
         val calendar: Calendar = Calendar.getInstance()
         val mYear = calendar.get(Calendar.YEAR)
         val mMonth = calendar.get(Calendar.MONTH)
         val mDay = calendar.get(Calendar.DAY_OF_MONTH)
 
+        // Can be remplaced by LocalDate.of but need atleast min SDK 26
+
         val datePickerDialog = DatePickerDialog(this, DatePickerDialog.OnDateSetListener{ _, year, monthOfYear, dayOfMonth ->
-            mView.setText(sdf.format(LocalDate.of(year - 1900,monthOfYear,dayOfMonth)), TextView.BufferType.EDITABLE)
+            mView.setText(sdf.format(Date(year - 1900,monthOfYear,dayOfMonth)), TextView.BufferType.EDITABLE)
 
         }, mYear,mMonth,mDay)
         datePickerDialog.show()

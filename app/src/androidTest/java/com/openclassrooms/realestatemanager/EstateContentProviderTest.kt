@@ -35,7 +35,7 @@ class EstateContentProviderTest {
 
     @Test
     fun getItemsWhenNoItemInserted(){
-        val cursor = mContentResolver.query(ContentUris.withAppendedId(EstateContentProvider().URI_ESTATE, ESTATE_ID_2),null,null,null,null)
+        val cursor = mContentResolver.query(ContentUris.withAppendedId(EstateContentProvider().uriEstate, ESTATE_ID_2),null,null,null,null)
         assertNotNull(cursor)
         assertEquals(0, cursor?.count)
         cursor?.close()
@@ -44,14 +44,14 @@ class EstateContentProviderTest {
    @Test
     fun insertAndGetItem(){
         // ADDING DEMO ESTATE
-        mContentResolver.insert(EstateContentProvider().URI_ESTATE, generateEstate())
+        mContentResolver.insert(EstateContentProvider().uriEstate, generateEstate())
 
         // TEST
-        val cursor = mContentResolver.query(ContentUris.withAppendedId(EstateContentProvider().URI_ESTATE, ESTATE_ID), null,null,null,null)
+        val cursor = mContentResolver.query(ContentUris.withAppendedId(EstateContentProvider().uriEstate, ESTATE_ID), null,null,null,null)
         assertNotNull(cursor)
         assertEquals(1, cursor?.count)
         assertEquals(true, cursor?.moveToFirst())
-        assertEquals("Adrien", cursor?.getString(cursor.getColumnIndexOrThrow("estateAgent")))
+        assertEquals("Phelippe", cursor?.getString(cursor.getColumnIndexOrThrow("estateAgent")))
     }
 
     private fun generateEstate():ContentValues{
@@ -70,7 +70,7 @@ class EstateContentProviderTest {
         values.put("estateStatute","AVAILABLE")
         values.put("entryDate",Date().time)
         values.put("soldDate",0L)
-        values.put("estateAgent","Adrien")
+        values.put("estateAgent","Phelippe")
         return values
     }
 }

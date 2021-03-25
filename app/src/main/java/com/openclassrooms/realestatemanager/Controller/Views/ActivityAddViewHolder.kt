@@ -20,6 +20,8 @@ class ActivityAddViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) 
 
     private lateinit var callbackWeakRef:WeakReference<ActivityAddAdapter.Listener>
 
+    // Need to be min SDK 21 to add the theme variable on the constructor to be a more actual way to do it and not deprecated
+    @Suppress("DEPRECATION")
 
     fun updateWithData(image:Image, callback:ActivityAddAdapter.Listener, action:String){
         val glide:RequestManager = Glide.with(itemView)
@@ -35,7 +37,7 @@ class ActivityAddViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) 
             itemView.horizontal_item_statute.visibility = View.VISIBLE
             itemView.horizontal_item_delete.visibility = View.VISIBLE
             if (image.imageTitle != null && image.imageTitle!!.isNotEmpty() && image.imageDesc != null && image.imageDesc!!.isNotEmpty()){
-                icon = itemView.resources.getDrawable(R.drawable.baseline_check_circle_black_24)
+                icon = itemView.resources.getDrawable(R.drawable.baseline_check_circle_black_24,)
                 filter = LightingColorFilter(colorGreen, colorGreen)
             }else{
                 icon = itemView.resources.getDrawable(R.drawable.baseline_warning_white_24)

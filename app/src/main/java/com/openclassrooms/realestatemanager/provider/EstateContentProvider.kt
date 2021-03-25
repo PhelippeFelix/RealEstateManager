@@ -13,9 +13,9 @@ import com.openclassrooms.realestatemanager.Models.Estate
 class EstateContentProvider : ContentProvider() {
 
     // FOR DATA
-    val AUTHORITY = "com.openclassrooms.realestatemanager.provider"
-    val TABLE_NAME = Estate::class.java.simpleName
-    var URI_ESTATE = Uri.parse("content://$AUTHORITY/$TABLE_NAME")
+    private val authority = "com.openclassrooms.realestatemanager.provider"
+    private val tableName = Estate::class.java.simpleName
+    var uriEstate = Uri.parse("content://$authority/$tableName")!!
 
     override fun insert(uri: Uri, p1: ContentValues?): Uri {
        if (context != null && p1 != null){
@@ -30,7 +30,7 @@ class EstateContentProvider : ContentProvider() {
         throw IllegalArgumentException("Failed to insert row into $uri")
     }
 
-    override fun query(uri: Uri, p1: Array<out String>?, p2: String?, p3: Array<out String>?, p4: String?): Cursor? {
+    override fun query(uri: Uri, p1: Array<out String>?, p2: String?, p3: Array<out String>?, p4: String?): Cursor {
         if (context != null){
             val index:Long = ContentUris.parseId(uri)
             val cursor = RealEstateManagerDatabase.getInstance(context!!).estateDao().getItemsWithCursor(index)
@@ -60,6 +60,6 @@ class EstateContentProvider : ContentProvider() {
     }
 
     override fun getType(uri: Uri): String {
-       return "vnd.android.cursor.item/$AUTHORITY.$TABLE_NAME"
+       return "vnd.android.cursor.item/$authority.$tableName"
     }
 }

@@ -135,7 +135,7 @@ class EditActivity : BaseActivity(), ActivityAddAdapter.Listener {
                     databaseId)
 
             this.mViewModel.updateEstate(estate, location, applicationContext, mViewModel.listImagesToSave.toList(), mViewModel.listImagesToDeleteFromDB)
-            setResult(Activity.RESULT_OK)
+            this.finish()
         }else{
             Toast.makeText(this, resources.getString(R.string.activity_add_estate_save_error), Toast.LENGTH_LONG).show()
         }
@@ -166,7 +166,7 @@ class EditActivity : BaseActivity(), ActivityAddAdapter.Listener {
             this.retrieveTextAndPopulateEditText(add_activity_bathroom_number,result.estate.bathroomNumber.toString())
             this.retrieveTextAndPopulateEditText(add_activity_bedroom_number,result.estate.bedroomNumber.toString())
             this.retrieveTextAndPopulateEditText(add_activity_desc,result.estate.desc)
-            this.retrieveTextAndPopulateEditText(add_activity_date,result.estate.entryDate.toFRString())
+            this.retrieveTextAndPopulateEditText(add_activity_date,result.estate.entryDate?.toFRString())
 
             this.retrieveTextAndPopulateEditText(add_activity_address,result.location.address)
             this.retrieveTextAndPopulateEditText(add_activity_add_address,result.location.additionalAddress)
