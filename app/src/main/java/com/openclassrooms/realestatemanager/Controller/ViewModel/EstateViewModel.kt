@@ -90,10 +90,6 @@ class EstateViewModel(private val estateDataRepository: EstateDataRepository,
         return estateDataRepository.gesEstateByID(estateId)
     }
 
-    fun nuke(){
-        estateDataRepository.nuke()
-    }
-
     fun createEstate(estate:Estate, location: Location,context: Context, listImages:List<Image>) {
         this.disposable.add(estateDataRepository.createEstate(estate)
                 .map { location.apply { location.estateId = it }}

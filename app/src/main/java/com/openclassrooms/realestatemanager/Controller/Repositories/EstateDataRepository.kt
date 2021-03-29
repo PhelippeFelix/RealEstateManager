@@ -24,10 +24,6 @@ class EstateDataRepository(private val database: RealEstateManagerDatabase) {
         return this.database.estateDao().getItemsByID(estateID)
     }
 
-    fun nuke(){
-        this.database.estateDao().nukeTable()
-    }
-
     // --- CREATE ---
 
     fun createEstate(estate: Estate) : Observable<Long> {

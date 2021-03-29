@@ -17,7 +17,6 @@ import com.openclassrooms.realestatemanager.Models.Location
 @Database(entities = [(Estate::class), (Image::class), (Location::class)],version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class RealEstateManagerDatabase : RoomDatabase() {
-
     abstract fun estateDao():EstateDao
     abstract fun imageDao():ImageDao
     abstract fun locationDao():LocationDao

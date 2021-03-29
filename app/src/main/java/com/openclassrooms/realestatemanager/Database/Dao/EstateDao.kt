@@ -28,7 +28,4 @@ interface EstateDao {
 
     @Update
     fun updateItem(estate: Estate) :Int
-
-    @Query("DELETE FROM Estate")
-    fun nukeTable()
 }

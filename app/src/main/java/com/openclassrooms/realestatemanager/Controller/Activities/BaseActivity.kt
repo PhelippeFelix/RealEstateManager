@@ -34,7 +34,6 @@ import java.io.IOException
 import java.time.LocalDate
 
 
-@Suppress("DEPRECATION")
 abstract class BaseActivity : AppCompatActivity() {
 
     lateinit var photoURI:Uri
