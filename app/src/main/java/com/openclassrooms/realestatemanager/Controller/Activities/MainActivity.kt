@@ -92,7 +92,6 @@ class MainActivity : AppCompatActivity() {
             MapFragment.newInstance() -> bottom_navigation_view.selectedItemId = (R.id.nav_menu_map)
             LoanFragment.newInstance() -> bottom_navigation_view.selectedItemId = (R.id.nav_menu_loan)
         }
-
     }
 
     // ---------------------

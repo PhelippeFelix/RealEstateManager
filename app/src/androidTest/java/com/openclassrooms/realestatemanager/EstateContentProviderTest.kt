@@ -7,7 +7,7 @@ import android.content.ContentValues
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.openclassrooms.realestatemanager.Database.RealEstateManagerDatabase
-import com.openclassrooms.realestatemanager.provider.EstateContentProvider
+import com.openclassrooms.realestatemanager.Database.provider.EstateContentProvider
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test

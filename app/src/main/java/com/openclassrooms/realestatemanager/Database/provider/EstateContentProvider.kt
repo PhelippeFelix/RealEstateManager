@@ -1,4 +1,4 @@
-package com.openclassrooms.realestatemanager.provider
+package com.openclassrooms.realestatemanager.Database.provider
 
 import android.content.ContentProvider
 import android.content.ContentUris
@@ -13,7 +13,7 @@ import com.openclassrooms.realestatemanager.Models.Estate
 class EstateContentProvider : ContentProvider() {
 
     // FOR DATA
-    private val authority = "com.openclassrooms.realestatemanager.provider"
+    private val authority = "com.openclassrooms.realestatemanager.Database.provider"
     private val tableName = Estate::class.java.simpleName
     var uriEstate = Uri.parse("content://$authority/$tableName")!!
 

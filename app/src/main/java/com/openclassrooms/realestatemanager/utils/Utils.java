@@ -75,9 +75,8 @@ public class Utils extends AsyncTask<Void,Void,Boolean> {
         return activeNetwork != null && activeNetwork.isConnectedOrConnecting();
     }
 
-    /**
-     * Vérification de la géo-localisation
-     */
+
+    // Vérification de la géo-localisation
     public static boolean isLocationEnabled(Context context) {
         int locationMode = 0;
         String locationProviders;
