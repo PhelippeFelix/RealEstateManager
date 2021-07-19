@@ -35,4 +35,4 @@ Architectures : MVVM
 Qualité : Clean Code, Tests unitaires, Tests fonctionnels
 Outils : GIT, Gradle, Room, Okhttp, Retrofit, RxAndroid
 
-<a href="https://ibb.co/MR64HVp"><img src="https://i.ibb.co/LC5Wyt6/final.png" alt="final" border="0"></a>
+[![Application.png](https://i.postimg.cc/W37GNFjs/Application.png)](https://postimg.cc/BLXLNvXz)
