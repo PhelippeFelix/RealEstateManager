@@ -28,11 +28,11 @@ Attributs d'un bien immobilier, pour chaque bien immobilier, les informations su
 -La date de vente du bien, s’il a été vendu.   
 -L'agent immobilier en charge de ce bien.  
 
-# Stack technique
+# Stack technique  
   
-Développement Android Natif Kotlin
-Architectures : MVVM
-Qualité : Clean Code, Tests unitaires, Tests fonctionnels
-Outils : GIT, Gradle, Room, Okhttp, Retrofit, RxAndroid
+Développement Android Natif Kotlin  
+Architectures : MVVM  
+Qualité : Clean Code, Tests unitaires, Tests fonctionnels  
+Outils : GIT, Gradle, Room, Okhttp, Retrofit, RxAndroid  
 
 [![Application.png](https://i.postimg.cc/W37GNFjs/Application.png)](https://postimg.cc/BLXLNvXz)
